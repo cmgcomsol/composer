@@ -34,6 +34,9 @@ class Google_Service_Clouderrorreporting_Resource_ProjectsEvents extends Google_
    * `projects/my-project-123`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string serviceFilter.version [Optional] The exact value to match
+   * against [`ServiceContext.version`](/error-
+   * reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
    * @opt_param string serviceFilter.resourceType [Optional] The exact value to
    * match against [`ServiceContext.resource_type`](/error-
    * reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
@@ -48,9 +51,6 @@ class Google_Service_Clouderrorreporting_Resource_ProjectsEvents extends Google_
    * previous response.
    * @opt_param int pageSize [Optional] The maximum number of results to return
    * per response.
-   * @opt_param string serviceFilter.version [Optional] The exact value to match
-   * against [`ServiceContext.version`](/error-
-   * reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
    * @return Google_Service_Clouderrorreporting_ListEventsResponse
    */
   public function listProjectsEvents($projectName, $optParams = array())
@@ -62,11 +62,13 @@ class Google_Service_Clouderrorreporting_Resource_ProjectsEvents extends Google_
   /**
    * Report an individual error event.
    *
-   * This endpoint accepts either an OAuth token, or an API key for
-   * authentication. To use an API key, append it to the URL as the value of a
-   * `key` parameter. For example: POST
-   * https://clouderrorreporting.googleapis.com/v1beta1/projects/example-
-   * project/events:report?key=123ABC456 (events.report)
+   * This endpoint accepts **either** an OAuth token, **or** an [API
+   * key](https://support.google.com/cloud/answer/6158862) for authentication. To
+   * use an API key, append it to the URL as the value of a `key` parameter. For
+   * example:
+   *
+   * `POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-
+   * project/events:report?key=123ABC456` (events.report)
    *
    * @param string $projectName [Required] The resource name of the Google Cloud
    * Platform project. Written as `projects/` plus the [Google Cloud Platform
