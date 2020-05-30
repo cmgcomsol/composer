@@ -49,6 +49,7 @@ class Google_Service_Dataflow extends Google_Service
   public $projects_jobs_messages;
   public $projects_jobs_workItems;
   public $projects_locations;
+  public $projects_locations_flexTemplates;
   public $projects_locations_jobs;
   public $projects_locations_jobs_debug;
   public $projects_locations_jobs_messages;
@@ -63,12 +64,13 @@ class Google_Service_Dataflow extends Google_Service
   /**
    * Constructs the internal representation of the Dataflow service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://dataflow.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://dataflow.googleapis.com/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1b3';
@@ -157,15 +159,15 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'location' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'replaceJobId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -207,11 +209,11 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'location' => array(
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'startTime' => array(
+                'location' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -344,6 +346,10 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'minimumImportance' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'location' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -363,10 +369,6 @@ class Google_Service_Dataflow extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'minimumImportance' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -421,6 +423,31 @@ class Google_Service_Dataflow extends Google_Service
           'methods' => array(
             'workerMessages' => array(
               'path' => 'v1b3/projects/{projectId}/locations/{location}/WorkerMessages',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'location' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_locations_flexTemplates = new Google_Service_Dataflow_Resource_ProjectsLocationsFlexTemplates(
+        $this,
+        $this->serviceName,
+        'flexTemplates',
+        array(
+          'methods' => array(
+            'launch' => array(
+              'path' => 'v1b3/projects/{projectId}/locations/{location}/flexTemplates:launch',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -981,11 +1008,11 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'jobId' => array(
+                'location' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'location' => array(
+                'jobId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

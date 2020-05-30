@@ -27,8 +27,11 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public $developerPayload;
   public $emailAddress;
   public $expiryTimeMillis;
+  public $externalAccountId;
   public $familyName;
   public $givenName;
+  protected $introductoryPriceInfoType = 'Google_Service_AndroidPublisher_IntroductoryPriceInfo';
+  protected $introductoryPriceInfoDataType = '';
   public $kind;
   public $linkedPurchaseToken;
   public $orderId;
@@ -39,6 +42,8 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public $priceCurrencyCode;
   public $profileId;
   public $profileName;
+  public $promotionCode;
+  public $promotionType;
   public $purchaseType;
   public $startTimeMillis;
   public $userCancellationTimeMillis;
@@ -121,6 +126,14 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->expiryTimeMillis;
   }
+  public function setExternalAccountId($externalAccountId)
+  {
+    $this->externalAccountId = $externalAccountId;
+  }
+  public function getExternalAccountId()
+  {
+    return $this->externalAccountId;
+  }
   public function setFamilyName($familyName)
   {
     $this->familyName = $familyName;
@@ -136,6 +149,20 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public function getGivenName()
   {
     return $this->givenName;
+  }
+  /**
+   * @param Google_Service_AndroidPublisher_IntroductoryPriceInfo
+   */
+  public function setIntroductoryPriceInfo(Google_Service_AndroidPublisher_IntroductoryPriceInfo $introductoryPriceInfo)
+  {
+    $this->introductoryPriceInfo = $introductoryPriceInfo;
+  }
+  /**
+   * @return Google_Service_AndroidPublisher_IntroductoryPriceInfo
+   */
+  public function getIntroductoryPriceInfo()
+  {
+    return $this->introductoryPriceInfo;
   }
   public function setKind($kind)
   {
@@ -214,6 +241,22 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public function getProfileName()
   {
     return $this->profileName;
+  }
+  public function setPromotionCode($promotionCode)
+  {
+    $this->promotionCode = $promotionCode;
+  }
+  public function getPromotionCode()
+  {
+    return $this->promotionCode;
+  }
+  public function setPromotionType($promotionType)
+  {
+    $this->promotionType = $promotionType;
+  }
+  public function getPromotionType()
+  {
+    return $this->promotionType;
   }
   public function setPurchaseType($purchaseType)
   {

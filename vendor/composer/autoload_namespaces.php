@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Mailjet' => array($vendorDir . '/mailjet/mailjet-apiv3-php/src'),
-    'Mailgun' => array($vendorDir . '/mailgun/mailgun-php/src'),
+    'JsonMapper' => array($vendorDir . '/netresearch/jsonmapper/src'),
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
 );

@@ -70,12 +70,13 @@ class Google_Service_Drive extends Google_Service
   /**
    * Constructs the internal representation of the Drive service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://www.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://www.googleapis.com/';
     $this->servicePath = 'drive/v3/';
     $this->batchPath = 'batch/drive/v3';
     $this->version = 'v3';
@@ -457,6 +458,10 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'enforceSingleParent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'ignoreDefaultVisibility' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -482,6 +487,10 @@ class Google_Service_Drive extends Google_Service
               'path' => 'files',
               'httpMethod' => 'POST',
               'parameters' => array(
+                'enforceSingleParent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'ignoreDefaultVisibility' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -649,6 +658,10 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'enforceSingleParent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'keepRevisionForever' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -718,6 +731,14 @@ class Google_Service_Drive extends Google_Service
                 'emailMessage' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'enforceSingleParent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'moveToNewOwnersRoot' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'sendNotificationEmail' => array(
                   'location' => 'query',

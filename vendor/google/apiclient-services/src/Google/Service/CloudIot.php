@@ -48,12 +48,13 @@ class Google_Service_CloudIot extends Google_Service
   /**
    * Constructs the internal representation of the CloudIot service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://cloudiot.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://cloudiot.googleapis.com/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
@@ -230,11 +231,15 @@ class Google_Service_CloudIot extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'gatewayListOptions.associationsGatewayId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'fieldMask' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -247,20 +252,16 @@ class Google_Service_CloudIot extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'gatewayListOptions.associationsDeviceId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'deviceNumIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'gatewayListOptions.associationsDeviceId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'gatewayListOptions.gatewayType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'gatewayListOptions.associationsGatewayId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -406,6 +407,20 @@ class Google_Service_CloudIot extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'deviceIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'deviceNumIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'gatewayListOptions.associationsDeviceId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'gatewayListOptions.gatewayType' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -425,20 +440,6 @@ class Google_Service_CloudIot extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'deviceIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'deviceNumIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'gatewayListOptions.associationsDeviceId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),

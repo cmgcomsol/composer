@@ -18,6 +18,7 @@
 class Google_Service_Drive_DriveFileCapabilities extends Google_Model
 {
   public $canAddChildren;
+  public $canAddMyDriveParent;
   public $canChangeCopyRequiresWriterPermission;
   public $canChangeViewersCanCopyContent;
   public $canComment;
@@ -27,6 +28,7 @@ class Google_Service_Drive_DriveFileCapabilities extends Google_Model
   public $canDownload;
   public $canEdit;
   public $canListChildren;
+  public $canModifyContent;
   public $canMoveChildrenOutOfDrive;
   public $canMoveChildrenOutOfTeamDrive;
   public $canMoveChildrenWithinDrive;
@@ -41,6 +43,7 @@ class Google_Service_Drive_DriveFileCapabilities extends Google_Model
   public $canReadRevisions;
   public $canReadTeamDrive;
   public $canRemoveChildren;
+  public $canRemoveMyDriveParent;
   public $canRename;
   public $canShare;
   public $canTrash;
@@ -54,6 +57,14 @@ class Google_Service_Drive_DriveFileCapabilities extends Google_Model
   public function getCanAddChildren()
   {
     return $this->canAddChildren;
+  }
+  public function setCanAddMyDriveParent($canAddMyDriveParent)
+  {
+    $this->canAddMyDriveParent = $canAddMyDriveParent;
+  }
+  public function getCanAddMyDriveParent()
+  {
+    return $this->canAddMyDriveParent;
   }
   public function setCanChangeCopyRequiresWriterPermission($canChangeCopyRequiresWriterPermission)
   {
@@ -126,6 +137,14 @@ class Google_Service_Drive_DriveFileCapabilities extends Google_Model
   public function getCanListChildren()
   {
     return $this->canListChildren;
+  }
+  public function setCanModifyContent($canModifyContent)
+  {
+    $this->canModifyContent = $canModifyContent;
+  }
+  public function getCanModifyContent()
+  {
+    return $this->canModifyContent;
   }
   public function setCanMoveChildrenOutOfDrive($canMoveChildrenOutOfDrive)
   {
@@ -238,6 +257,14 @@ class Google_Service_Drive_DriveFileCapabilities extends Google_Model
   public function getCanRemoveChildren()
   {
     return $this->canRemoveChildren;
+  }
+  public function setCanRemoveMyDriveParent($canRemoveMyDriveParent)
+  {
+    $this->canRemoveMyDriveParent = $canRemoveMyDriveParent;
+  }
+  public function getCanRemoveMyDriveParent()
+  {
+    return $this->canRemoveMyDriveParent;
   }
   public function setCanRename($canRename)
   {

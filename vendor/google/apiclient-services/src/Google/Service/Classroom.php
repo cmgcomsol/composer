@@ -108,12 +108,13 @@ class Google_Service_Classroom extends Google_Service
   /**
    * Constructs the internal representation of the Classroom service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://classroom.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://classroom.googleapis.com/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
@@ -422,6 +423,14 @@ class Google_Service_Classroom extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -430,14 +439,6 @@ class Google_Service_Classroom extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'modifyAssignees' => array(
@@ -518,6 +519,10 @@ class Google_Service_Classroom extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'late' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -532,10 +537,6 @@ class Google_Service_Classroom extends Google_Service
                   'repeated' => true,
                 ),
                 'userId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'late' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -919,10 +920,6 @@ class Google_Service_Classroom extends Google_Service
               'path' => 'v1/invitations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'courseId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'userId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -934,6 +931,10 @@ class Google_Service_Classroom extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'courseId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

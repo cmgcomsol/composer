@@ -2,6 +2,30 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
+## 3.0.0
+
+### Added
+
+- Support for PSR-4
+- All classes `Mailgun\Model` are final or abstract. 
+
+### Changed
+
+- Dropped PHP5 support
+- Removed deprecated code
+- Moved `RequestBuilder` and `HttpClientConfigurator` to `Mailgun\HttpClient` namespace
+- Updated signature of `Mailgun::__construct()`
+
+### Removed
+
+- Dependency on `php-http/message`. 
+
+### [Unreleased]
+
+- API v4 Email Validation; please use US Servers with your public key instead
+(please check the Issues [617](https://github.com/mailgun/mailgun-php/issues/617)
+and [619](https://github.com/mailgun/mailgun-php/issues/619) for further details)
+
 ## 2.8.1
 
 ### Fixed
@@ -32,7 +56,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 - Allow to set the Mailgun server when instantiating the Mailgun's client: `$mailgun = Mailgun::create('key', 'server');`
 - Add new PHPUnit tests for our models
 - Add new PHPUnit tests for our API
-- Added `Maingun\Api\Attachment`
+- Added `Mailgun\Api\Attachment`
 - Fluent interface for `MessageBuilder` and `BatchMessage`
 - Support for HTTPlug 2.0
 
